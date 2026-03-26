@@ -1,4 +1,4 @@
-def instrucciones ():
+def instrucciones():
     mensaje = """
     Bienvenido a Piedra, Papel, Tijera, Lagartija, Spock
 
@@ -23,13 +23,16 @@ def instrucciones ():
 
 import random as r
 
-def pasos_para_jugar ():
+def pasos_para_jugar():
     lista_opciones = ["piedra", "papel", "tijeras", "lagartija", "spock"]
-    mano_jugador = (input("Elige una de las opciones a continuación: Piedra, Papel, Tijeras, Lagartija o Spock: ")).lower()
+    mano_jugador = (input()).lower()
     mano_npc = lista_opciones[r.randint(0,4)]
     if mano_jugador == mano_npc:
-        print("Empatamos nub.")
-    elif (mano_jugador == "piedra" and (mano_npc == "tijeras" or mano_npc == "lagartija")) or (mano_jugador == "pape" and (mano_npc == "piedra" or mano_npc == "spock")) or (mano_jugador == "tijeras" and (mano_npc == "pape" or mano_npc == "lagartija")) or (mano_jugador == "lagartija" and (mano_npc == "pape" or mano_npc == "spock")) or (mano_jugador == "spock" and (mano_npc == "piedra" or mano_npc == "tijeras")):
-        print("Me ganaste crack.")
-    elif (mano_jugador == "piedra" and (mano_npc == "pape" or mano_npc == "spock")) or (mano_jugador == "pape" and (mano_npc == "tijeras" or mano_npc == "lagartija")) or (mano_jugador == "tijeras" and (mano_npc == "piedra" or mano_npc == "spock")) or (mano_jugador == "lagartija" and (mano_npc == "piedra" or mano_npc == "tijeras")) or (mano_jugador == "spock" and (mano_npc == "pape" or mano_npc == "lagartija")):
-        print("Perdiste nub.")
+        print(f"Empatamos nub... Ambos elegimos {mano_jugador}.")
+    elif (mano_jugador == "piedra" and (mano_npc == "tijeras" or mano_npc == "lagartija")) or (mano_jugador == "papel" and (mano_npc == "piedra" or mano_npc == "spock")) or (mano_jugador == "tijeras" and (mano_npc == "papel" or mano_npc == "lagartija")) or (mano_jugador == "lagartija" and (mano_npc == "papel" or mano_npc == "spock")) or (mano_jugador == "spock" and (mano_npc == "piedra" or mano_npc == "tijeras")):
+        print(f"Me ganaste crack. Mi {mano_npc} perdió contra tu {mano_jugador}.")
+    elif (mano_jugador == "piedra" and (mano_npc == "papel" or mano_npc == "spock")) or (mano_jugador == "papel" and (mano_npc == "tijeras" or mano_npc == "lagartija")) or (mano_jugador == "tijeras" and (mano_npc == "piedral" or mano_npc == "spock")) or (mano_jugador == "lagartija" and (mano_npc == "piedra" or mano_npc == "tijeras")) or (mano_jugador == "spock" and (mano_npc == "papel" or mano_npc == "lagartija")):
+        print(f"Perdiste nub. Mi {mano_npc} le ganó a tu {mano_jugador}.")
+
+instrucciones()
+pasos_para_jugar()
