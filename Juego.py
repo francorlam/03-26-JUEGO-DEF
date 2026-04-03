@@ -27,12 +27,25 @@ def pasos_para_jugar():
     lista_opciones = ["piedra", "papel", "tijeras", "lagartija", "spock"]
     mano_jugador = (input()).lower()
     mano_npc = lista_opciones[r.randint(0,4)]
+    jugada = 0
     if mano_jugador == mano_npc:
         print(f"Empatamos nub... Ambos elegimos {mano_jugador}.")
+        jugada = 1
     elif (mano_jugador == "piedra" and (mano_npc == "tijeras" or mano_npc == "lagartija")) or (mano_jugador == "papel" and (mano_npc == "piedra" or mano_npc == "spock")) or (mano_jugador == "tijeras" and (mano_npc == "papel" or mano_npc == "lagartija")) or (mano_jugador == "lagartija" and (mano_npc == "papel" or mano_npc == "spock")) or (mano_jugador == "spock" and (mano_npc == "piedra" or mano_npc == "tijeras")):
         print(f"Me ganaste crack. Mi {mano_npc} perdió contra tu {mano_jugador}.")
+        jugada = 2
     elif (mano_jugador == "piedra" and (mano_npc == "papel" or mano_npc == "spock")) or (mano_jugador == "papel" and (mano_npc == "tijeras" or mano_npc == "lagartija")) or (mano_jugador == "tijeras" and (mano_npc == "piedral" or mano_npc == "spock")) or (mano_jugador == "lagartija" and (mano_npc == "piedra" or mano_npc == "tijeras")) or (mano_jugador == "spock" and (mano_npc == "papel" or mano_npc == "lagartija")):
         print(f"Perdiste nub. Mi {mano_npc} le ganó a tu {mano_jugador}.")
+        jugada = 3
+    return jugada
 
 instrucciones()
-pasos_para_jugar()
+contador = 0
+for i in range(999):
+    jugada2 = pasos_para_jugar()
+    if jugada2 == 2:
+        contador += 1
+    print(f"Juegos ganados: {contador}")
+    revisar = (input("Quieres seguir jugando?: ")).lower()
+    if revisar == "no":
+        break
